@@ -11,7 +11,7 @@
       </div>
       <div class="row">
         <div class="case" v-for="caseItem in projectDesc" :key="caseItem.id">
-          <div class="case-details transition-all text-transparent hover:text-white hover:bg-gray-700/50">
+          <div class="case-details transition-all duration-300 text-transparent hover:text-white hover:bg-gray-700/50">
             <span>{{ caseItem.subtitle }}</span>
             <h2>{{ caseItem.title }}</h2>
           </div>
