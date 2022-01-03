@@ -11,7 +11,7 @@
       </div>
       <div class="row">
         <div class="case" v-for="caseItem in projectDesc" :key="caseItem.id">
-          <div class="case-details">
+          <div class="case-details transition-all text-transparent hover:text-white hover:bg-gray-700/50">
             <span>{{ caseItem.subtitle }}</span>
             <h2>{{ caseItem.title }}</h2>
           </div>
@@ -36,7 +36,7 @@ export default {
   },
   setup() {
     const dynamicImport = (name) => {
-      return new URL(`../assets/${name}.jpeg`, import.meta.url).href;
+      return new URL(`../assets/cases/${name}.png`, import.meta.url).href;
     };
     return {
       projectDesc: VITE_APP_CONFIG.projectDesc,
@@ -82,8 +82,10 @@ export default {
     }
   }
   .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     @include media('<=tablet') {
-      flex-direction: column;
+      // flex-direction: column;
     }
     .case {
       position: relative;
@@ -115,7 +117,7 @@ export default {
           margin-top: 156px;
           font-size: 1.6rem;
           opacity: 0.8;
-          color: $white;
+          // color: $white;
           font-weight: 600;
           @include media('<=desktop', '>tablet') {
             font-size: 1.4rem;
@@ -130,7 +132,7 @@ export default {
           line-height: 3.4rem;
           width: 85%;
           margin-top: 16px;
-          color: $white;
+          // color: $white;
           @include media('<=desktop', '>tablet') {
             font-size: 2rem;
             line-height: 2.4rem;

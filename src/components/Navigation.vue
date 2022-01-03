@@ -3,20 +3,23 @@
     <div class="container">
       <div class="nav-columns">
         <div class="nav-column">
-          <div class="nav-label">Contact</div>
+          <div class="nav-label">联系方式</div>
           <div class="nav-infos">
             <ul class="nav-info">
-              <li class="nav-info-label">Email</li>
+              <li class="nav-info-label">邮箱</li>
               <li>
                 <a :href="`mailto:${email}`">{{ email }}</a>
               </li>
             </ul>
             <ul class="nav-info">
-              <li class="nav-info-label">Phone</li>
+              <li class="nav-info-label">微信</li>
               <li>
                 <a :href="`tel:${phone}`">{{ phone }}</a>
               </li>
             </ul>
+          </div>
+          <div class="text-gray-400 my-4">
+            Copyright © {{ year }} Muzhui Inc. All rights reserved.
           </div>
         </div>
       </div>
@@ -28,9 +31,11 @@ import { VITE_APP_CONFIG } from '../config';
 export default {
   name: 'Navigation',
   setup() {
+    const year = new Date().getFullYear();
     return {
       email: VITE_APP_CONFIG.email,
       phone: VITE_APP_CONFIG.phone,
+      year
     };
   },
 };
@@ -117,7 +122,7 @@ nav {
             }
           }
           .nav-info-label {
-            font-weight: 600;
+            // font-weight: 400;
           }
           li {
             font-weight: 300;

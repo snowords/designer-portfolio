@@ -2,9 +2,9 @@
   <section class="main">
     <div class="container">
       <div class="row">
-        <div class="text-3xl text-red-700">
+        <!-- <div class="text-3xl text-red-700">
           hello
-        </div>
+        </div> -->
         <h2>
           <div class="line">
             <!-- <span>Creating unique brands is</span> -->
@@ -16,8 +16,8 @@
           </div>
         </h2>
         <div class="btn-row">
-          <a href="https://github.com/0xbul1" target="_blank">
-            More about me <RightArrow />
+          <a href="https://www.zcool.com.cn/u/21752848" target="_blank">
+            了解更多 <RightArrow />
           </a>
         </div>
       </div>
@@ -54,7 +54,7 @@ export default {
     h2 {
       font-size: 3rem;
       line-height: 4.2rem;
-      font-weight: 700;
+      // font-weight: 700;
       z-index: 10;
       color: $white;
       mix-blend-mode: difference;
@@ -93,7 +93,7 @@ export default {
         text-decoration: none;
         display: flex;
         align-items: center;
-        font-weight: 600;
+        // font-weight: 600;
         @include media('<=tablet') {
           font-size: 1.3rem;
         }

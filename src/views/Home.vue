@@ -16,7 +16,7 @@ export default {
   components: {
     IntroOverlay,
     Banner,
-    Cases,
+    Cases
   },
   props: {
     dimensions: {
