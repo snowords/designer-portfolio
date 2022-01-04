@@ -1,6 +1,7 @@
 <template>
   <section class="main">
     <div class="container">
+      <Footer />
       <div class="row">
         <!-- <div class="text-3xl text-red-700">
           hello
@@ -28,11 +29,13 @@
 <script>
 import RightArrow from '../assets/arrow-right.svg';
 import { VITE_APP_CONFIG } from '../config';
+import Footer from './Footer.vue';
 
 export default {
   name: 'Banner',
   components: {
     RightArrow,
+    Footer
   },
   setup() {
     return {

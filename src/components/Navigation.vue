@@ -3,24 +3,35 @@
     <div class="container">
       <div class="nav-columns">
         <div class="nav-column">
-          <div class="nav-label">联系方式</div>
-          <div class="nav-infos">
-            <ul class="nav-info">
-              <li class="nav-info-label">邮箱</li>
-              <li>
-                <a :href="`mailto:${email}`">{{ email }}</a>
-              </li>
-            </ul>
-            <ul class="nav-info">
-              <li class="nav-info-label">微信</li>
-              <li>
-                <a :href="`tel:${phone}`">{{ phone }}</a>
-              </li>
-            </ul>
-          </div>
-          <div class="text-gray-400 my-4">
-            Copyright © {{ year }} Muzhui Inc. All rights reserved.
-          </div>
+          <el-tabs tab-position="left" class="tabs-box">
+            <el-tab-pane class="pl-6" label="合作品牌">
+              <div class="nav-label">合作品牌</div>
+              <div class="h-36 md:h-24 overflow-scroll">
+                <div class="inline-block" v-for="brandLogo in brandLogos" :key="brandLogo.id">
+                  <div class="w-16 h-16 mx-2 md:mx-6">
+                    <img :src="dynamicImport(brandLogo.img)" :alt="brandLogo.id" />
+                  </div>
+                </div>
+              </div>
+            </el-tab-pane>
+            <el-tab-pane class="pl-6" label="联系方式">
+              <div class="nav-label">联系方式</div>
+              <div class="nav-infos grid grid-cols-1 md:grid-cols-2">
+                <ul class="nav-info">
+                  <li class="nav-info-label">邮箱</li>
+                  <li>
+                    <a :href="`mailto:${email}`">{{ email }}</a>
+                  </li>
+                </ul>
+                <ul class="nav-info">
+                  <li class="nav-info-label">微信</li>
+                  <li>
+                    <a :href="`tel:${phone}`">{{ phone }}</a>
+                  </li>
+                </ul>
+              </div>
+            </el-tab-pane>
+          </el-tabs>
         </div>
       </div>
     </div>
@@ -31,11 +42,14 @@ import { VITE_APP_CONFIG } from '../config';
 export default {
   name: 'Navigation',
   setup() {
-    const year = new Date().getFullYear();
+    const dynamicImport = (name) => {
+      return new URL(`../assets/brands/${name}.png`, import.meta.url).href;
+    };
     return {
       email: VITE_APP_CONFIG.email,
       phone: VITE_APP_CONFIG.phone,
-      year
+      brandLogos: VITE_APP_CONFIG.brandLogos,
+      dynamicImport
     };
   },
 };
@@ -52,28 +66,6 @@ nav {
   position: absolute;
   overflow: hidden;
   background: $yellow;
-  a {
-    position: relative;
-    &:after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      display: block;
-      margin-top: 5px;
-      right: 0;
-      background: $black;
-      transition: 0.4s ease;
-    }
-    &:hover {
-      color: pink;
-      &:after {
-        width: 100%;
-        left: 0;
-        background: $black;
-      }
-    }
-  }
   .nav-columns {
     transform: translateY(125px);
     display: flex;
@@ -85,12 +77,12 @@ nav {
       }
     }
     .nav-column {
-      width: 45%;
+      width: 85%;
       @include media('<=654px') {
         width: 100%;
       }
       &:last-child {
-        width: 55%;
+        width: 85%;
         @include media('<=654px') {
           width: 100%;
         }
@@ -108,8 +100,8 @@ nav {
         }
       }
       .nav-infos {
-        display: flex;
-        flex-wrap: wrap;
+        // display: flex;
+        // flex-wrap: wrap;
         @include media('<=654px') {
           justify-content: space-between;
         }
@@ -165,6 +157,11 @@ nav {
         }
       }
     }
+  }
+  .tabs-box {
+    height: 100%; 
+    --el-color-primary: #A19882; 
+    --el-border-color-light: #E6DDC6;
   }
 }
 </style>

@@ -2,7 +2,7 @@
   <transition name="vite-bounce">
     <Header :dimensions="dimensions" v-if="showHeader" />
   </transition>
-  <div class="App">
+  <div class="App scroll-smooth hover:scroll-auto">
     <router-view :dimensions="dimensions"></router-view>
   </div>
   <Navigation />

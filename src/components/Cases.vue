@@ -11,7 +11,7 @@
       </div>
       <div class="row">
         <div class="case" v-for="caseItem in projectDesc" :key="caseItem.id">
-          <div class="case-details transition-all duration-300 text-transparent hover:text-white hover:bg-gray-700/50">
+          <div class="case-details transition-all duration-300 text-transparent hover:text-white hover:bg-gray-700/50 active:text-white active:bg-gray-700/50" @click="viewCase(caseItem.id)">
             <span>{{ caseItem.subtitle }}</span>
             <h2>{{ caseItem.title }}</h2>
           </div>
@@ -28,6 +28,8 @@
 import CasesPrev from '../assets/arrow-left.svg';
 import CasesNext from '../assets/arrow-right.svg';
 import { VITE_APP_CONFIG } from '../config';
+import { useRouter, useRoute } from 'vue-router'
+
 export default {
   name: 'Cases',
   components: {
@@ -38,9 +40,17 @@ export default {
     const dynamicImport = (name) => {
       return new URL(`../assets/cases/${name}.png`, import.meta.url).href;
     };
+
+    const router = useRouter()
+
+    const viewCase = (caseId) => {
+      console.log(caseId);
+      router.push({ name: 'CaseStudies', params: { caseId } })
+    };
     return {
       projectDesc: VITE_APP_CONFIG.projectDesc,
       dynamicImport,
+      viewCase
     };
   },
 };
@@ -86,6 +96,7 @@ export default {
     grid-template-columns: 1fr 1fr 1fr;
     @include media('<=tablet') {
       // flex-direction: column;
+      grid-template-columns: 1fr;
     }
     .case {
       position: relative;
