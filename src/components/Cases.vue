@@ -16,7 +16,7 @@
             <h2>{{ caseItem.title }}</h2>
           </div>
           <div class="case-image">
-            <img :src="dynamicImport(caseItem.img)" :alt="caseItem.title" />
+            <img :src="dynamicImport(caseItem.pics[0])" :alt="caseItem.title" />
           </div>
         </div>
       </div>

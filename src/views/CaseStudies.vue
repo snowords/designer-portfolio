@@ -8,7 +8,7 @@
         <!-- <el-tag class="ml-2" type="success">Tag 2</el-tag>
         <el-tag class="ml-2" type="info">Tag 3</el-tag> -->
         <div class="text-3xl">{{ caseItem.title }}</div>
-        <div class="shadow-xl my-12 border-8 border-white" v-for="pic in caseItem.subpic" :key="pic.index">
+        <div class="shadow-xl my-12 border-8 border-white" v-for="pic in caseItem.pics" :key="pic.index">
           <img :src="dynamicImport(pic)" :alt="pic.index" />
         </div>
         <div class="text-center"> - END. - </div>
