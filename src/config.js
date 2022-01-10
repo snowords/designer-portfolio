@@ -19,7 +19,7 @@ export const VITE_APP_CONFIG = {
       id: 1,
       subtitle: '手绘人物设计',
       title: '必胜客RGM活动手绘人物设计',
-      pics: ['img1-1', 'img1-2', 'img1-3', 'img1-4', 'img1-5', 'img1-6']
+      pics: ['img1-1', 'img1-2', 'img1-3', 'img1-4']
     },
     {
       id: 2,

@@ -32,9 +32,7 @@ export default {
   setup() {
     const route = useRoute()
     const caseId = route.params.caseId
-    console.log(caseId)
     const caseItem = VITE_APP_CONFIG.projectDesc.find(item => item.id == caseId)
-    console.log(caseItem)
 
     const dynamicImport = (name) => {
       return new URL(`../assets/cases/${name}.png`, import.meta.url).href;

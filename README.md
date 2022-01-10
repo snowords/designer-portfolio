@@ -4,8 +4,8 @@ Language: English | [中文简体](README_CN.md)
 
 ## Online Preview
 
-- [preview1](https://hostloc-mjj.pages.dev/)
-- [preview2](https://git.io/Jz8Ur)
+- [preview1](https://designer-portfolio-coral.vercel.app/#/)
+- [preview2](https://www.muzhui.club/)
 
 ## Screenshots
 
@@ -21,11 +21,6 @@ Language: English | [中文简体](README_CN.md)
 | -------------------------- | ----------------------------- |
 | ![](./screenshots/web.gif) | ![](./screenshots/mobile.gif) |
 
-## Guide
-
-|                        step1                        |                        step2                        |                        step3                        |                        step4                        |
-| :-------------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------: |
-| ![step1](https://z3.ax1x.com/2021/09/21/4YFDVf.png) | ![step2](https://z3.ax1x.com/2021/09/21/4YF6Pg.png) | ![step3](https://z3.ax1x.com/2021/09/21/4YF2xs.png) | ![step4](https://z3.ax1x.com/2021/09/21/4YFfrq.png) |
 
 ## Thanks
 
@@ -38,9 +33,3 @@ Language: English | [中文简体](README_CN.md)
 - Thanks [hostloc](https://hostloc.com/forum.php) & MJJ
   - [About1](https://hostloc.com/thread-894527-1-1.html)
   - [About2](https://hostloc.com/thread-893502-1-1.html)
-
-## Resources
-
-- [aliyundrive](https://www.aliyundrive.com/s/8qJ3wmG36DU)
-
-- [baiduyun:rcpv](https://pan.baidu.com/s/1f69KRekWA0NVc841wl0Kxw)
