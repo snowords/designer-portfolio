@@ -1,4 +1,3 @@
-// 配置
 export const VITE_APP_CONFIG = {
 
   // 站点名
@@ -37,7 +36,7 @@ export const VITE_APP_CONFIG = {
       id: 4,
       subtitle: '包装设计',
       title: '中烟雪茄烟包设计',
-      pics: ['img4-1', 'img4-2', 'img4-3']
+      pics: ['img4-1', 'img4-2', 'img4-3', 'img4-4', 'img4-5', 'img4-6']
     },
     {
       id: 5,
@@ -50,6 +49,24 @@ export const VITE_APP_CONFIG = {
       subtitle: '活动主KV设计',
       title: '肯德基音乐节活动',
       pics: ['img6-1', 'img6-2', 'img6-3', 'img6-4']
+    },
+    {
+      id: 7,
+      subtitle: 'LOGO作品',
+      title: '品牌LOGO设计',
+      pics: ['img7-1', 'img7-2', 'img7-3', 'img7-4']
+    },
+    {
+      id: 8,
+      subtitle: '活动主KV设计',
+      title: '必胜客先锋俱乐部活动',
+      pics: ['img8-1', 'img8-2', 'img8-3', 'img8-4', 'img8-5', 'img8-6']
+    },
+    {
+      id: 9,
+      subtitle: '活动主KV设计',
+      title: '必胜客AM Workshop活动',
+      pics: ['img9-1', 'img9-2', 'img9-3']
     }
   ],
   // 合作品牌
