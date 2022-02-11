@@ -1,17 +1,193 @@
 <template>
-  <div class="page">
-    <div class="container">
+  <section class="cases">
+    <div class="container-fluid">
+      <div class="cases-navigation">
+        <div class="cases-arrow prev disabled">
+        </div>
+        <div class="cases-arrow next">
+        </div>
+      </div>
       <div class="row">
-        <h3>This is the services page</h3>
+        <div class="case" v-for="caseItem in portfolios" :key="caseItem.caseId">
+          <div class="case-details transition-all duration-300 text-transparent hover:text-white hover:bg-gray-700/50 active:text-white active:bg-gray-700/50" @click="viewCase(caseItem.caseId)">
+            <span>{{ caseItem.subtitle }}</span>
+            <h2>{{ caseItem.title }}</h2>
+          </div>
+          <div class="case-image">
+            <img :src="caseItem.pics[0].url" :alt="caseItem.title" />
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
+import { gql } from 'graphql-request'
+
 export default {
-  name: 'Services',
-};
+  name: 'Cases',
+  data() {
+    return {
+      portfolios: {},
+    }
+  },
+  async created() {
+    const data = await this.$graphcms.request(
+      gql`
+        {
+          portfolios {
+            caseId
+            title
+            subtitle
+            pics {
+              url
+            }
+          }
+        }
+      `
+    )
+    this.portfolios = data.portfolios
+  },
+  methods: {
+    viewCase(caseId) {
+      this.$router.push({ name: 'CaseStudies', params: { caseId } })
+    },
+  },
+  // setup() {
+  //   const dynamicImport = (name) => {
+  //     return new URL(`../assets/cases/${name}.png`, import.meta.url).href;
+  //   }
+
+  //   const router = useRouter()
+  //   const viewCase = (caseId) => {
+  //     router.push({ name: 'CaseStudies', params: { caseId } })
+  //   }
+
+  //   return {
+  //     portfolios: {},
+  //     dynamicImport,
+  //     viewCase
+  //   };
+  // }
+}
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.cases {
+  height: 50vh;
+  height: calc(var(--vh, 1vh) * 50);
+  .cases-navigation {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 6;
+    padding: 32px;
+    box-sizing: border-box;
+    @include media('<=tablet') {
+      display: none;
+    }
+    .cases-arrow {
+      // background: rgba(0, 0, 0, 0.4);
+      height: 72px;
+      width: 72px;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        color: $white;
+        height: 28px;
+        width: 28px;
+      }
+      &.disabled {
+        opacity: 0.3;
+      }
+    }
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    @include media('<=tablet') {
+      // flex-direction: column;
+      grid-template-columns: 1fr;
+    }
+    .case {
+      position: relative;
+      background: $black;
+      cursor: pointer;
+      &:hover {
+        .case-image {
+          opacity: 0.8;
+        }
+      }
+      .case-details {
+        width: 33.3333vw;
+        height: 50vh;
+        height: calc(var(--vh, 1vh) * 50);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 32px;
+        box-sizing: border-box;
+        z-index: 1;
+        position: relative;
+        @include media('<=tablet') {
+          width: 100vw;
+        }
+        @include media('<=phone') {
+          padding: 16px;
+        }
+        span {
+          margin-top: 156px;
+          font-size: 1.6rem;
+          opacity: 0.8;
+          // color: $white;
+          font-weight: 600;
+          @include media('<=desktop', '>tablet') {
+            font-size: 1.4rem;
+          }
+          @include media('<=phone') {
+            font-size: 1.2rem;
+            line-height: 2.2rem;
+          }
+        }
+        h2 {
+          font-size: 2.4rem;
+          line-height: 3.4rem;
+          width: 85%;
+          margin-top: 16px;
+          // color: $white;
+          @include media('<=desktop', '>tablet') {
+            font-size: 2rem;
+            line-height: 2.4rem;
+          }
+          @include media('<=phone') {
+            font-size: 1.7rem;
+            line-height: 2.2rem;
+            margin-top: 8px;
+          }
+        }
+      }
+      .case-image {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        opacity: 0.9;
+        transition: 0.4s cubic-bezier(0.6, -0.05, 0.1, 0.99);
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+</style>
