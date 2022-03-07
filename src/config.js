@@ -67,6 +67,24 @@ export const VITE_APP_CONFIG = {
       subtitle: '活动主KV设计',
       title: '必胜客AM Workshop活动',
       pics: ['img9-1', 'img9-2', 'img9-3']
+    },
+    {
+      id: 10,
+      subtitle: '活动主KV设计',
+      title: '招商银行新年美陈',
+      pics: ['img10-1', 'img10-2', 'img10-3']
+    },
+    {
+      id: 11,
+      subtitle: '活动主KV设计',
+      title: '必胜客冠挑赛',
+      pics: ['img11-1', 'img11-2', 'img11-3', 'img11-4']
+    },
+    {
+      id: 12,
+      subtitle: '手绘设计',
+      title: '手绘旅游海报设计',
+      pics: ['img12-1', 'img12-2', 'img12-3', 'img12-4']
     }
   ],
   // 合作品牌
